@@ -4,7 +4,7 @@ const port = 3000;
 const { getData, dbUpdateAll } = require('./core');
 const { fsymsList, tsymsList } = require('./config');
 
-setInterval(() => {dbUpdateAll()}, 12000); // 2 min
+setInterval(() => {dbUpdateAll()}, 120000); // 2 min
 
 app.get('/service/price', (req, res) => {
     const fsyms = req.query.fsyms;
