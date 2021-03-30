@@ -1,0 +1,17 @@
+{
+  "name": "interview",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Iskandar Mamadnazarov",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "https": "^1.0.0",
+    "mysql": "^2.18.1"
+  }
+}
