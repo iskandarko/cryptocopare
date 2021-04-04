@@ -54,24 +54,12 @@ function makeAPIRequest(fsyms, tsyms) {
 }
 
 function filterData(fsyms, tsyms, data) {
-    let filteredData = {
-        RAW: {
-            [fsyms] : {
-                [tsyms] : {}
-            }
-        },
-        DISPLAY: {
-            [fsyms] : {
-                [tsyms] : {}
-            }
-        }
-    }
-    // Get only the required values.
-    values.forEach((value) => {
-        filteredData.RAW[fsyms][tsyms][value] = data.RAW[fsyms][tsyms][value];
-        filteredData.DISPLAY[fsyms][tsyms][value] = data.DISPLAY[fsyms][tsyms][value];
-    });
-    
+    const filteredData = values.reduce((accumulator, value) => {
+        accumulator['RAW'][fsyms][tsyms][value] = data['RAW'][fsyms][tsyms][value];
+        accumulator['DISPLAY'][fsyms][tsyms][value] = data['DISPLAY'][fsyms][tsyms][value];
+        return accumulator;
+    }, { RAW: { [fsyms] : { [tsyms] : {} } }, DISPLAY: { [fsyms] : { [tsyms] : {} } } });
+
     return filteredData;
 }
 
